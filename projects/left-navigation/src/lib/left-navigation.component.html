@@ -1,0 +1,34 @@
+<nav class="sidebar" [ngClass]="collapsed ? 'collapsed' : ''" *ngIf="displayNav">
+  <div class="sidebar-header" *ngIf="header">
+      <h1 [title]="header.title">
+          <i class="icon" *ngIf="header?.icon">
+              <fa-icon [fixedWidth]="true" [icon]="[header.icon.prefix, header.icon.name]" *ngIf="header?.icon" [size]="collapsed ? '1x' : '2x'"></fa-icon>
+          </i> <span>{{header.title}}</span>
+      </h1>
+  </div>
+  <div class="sidebar-body" [ngClass]="{'no-footer': !displayFooter, 'no-header': !header }">
+      <ul class="nav flex-column" *ngIf="items && items.length > 0">
+          <li [class.active]="highlightLinks && item?.link?.relative ? isLinkActive(item.link) : false" class="nav-item" *ngFor="let item of items; let i = index">
+            <a *ngIf="item.itemType === 'fn'" [ngClass]="collapsed ? 'pl-3' : 'pl-4'" (click)="item?.onClick($event)" href="javascript:void(0);" class="nav-link" [id]="'left-navlink-'+ item.id" [title]="header && header.title ? header.title + ' ' + item.text : item.text">
+                <fa-icon *ngIf="item?.icon" [fixedWidth]="true" [icon]="[item.icon.prefix, item.icon.name]"></fa-icon> <span class="text">{{item.text}}</span>
+            </a>
+            <a *ngIf="item.itemType === 'link' && !item?.link?.relative" [ngClass]="collapsed ? 'pl-3' : 'pl-4'" class="nav-link" [id]="'left-navlink-'+ item.id" [title]="header && header.title ? header.title + ' ' + item.text : item.text" [target]="item.link.target" [href]="item.link.url">
+                <fa-icon *ngIf="item?.icon" [fixedWidth]="true" [icon]="[item.icon.prefix, item.icon.name]"></fa-icon> <span class="text">{{item.text}}</span>
+            </a>
+            <a *ngIf="item.itemType === 'link' && item?.link?.relative" [ngClass]="collapsed ? 'pl-3' : 'pl-4'" class="nav-link" [id]="'left-navlink-'+ item.id" [title]="header && header.title ? header.title + ' ' + item.text : item.text" [target]="item.link.target" [routerLink]="[item.link.url]" [queryParams]="item.link.queryParams">
+                <fa-icon *ngIf="item?.icon" [fixedWidth]="true" [icon]="[item.icon.prefix, item.icon.name]"></fa-icon> <span class="text">{{item.text}}</span>
+            </a>
+            <hr *ngIf="item.itemType === 'hr'" />
+            <h4 *ngIf="item.itemType === 'heading'" [ngClass]="collapsed ? 'pl-3' : 'pl-4'" [id]="item.id">{{item.text}}</h4>
+          </li>
+      </ul>
+  </div>
+  <div class="sidebar-footer" *ngIf="displayFooter">
+      <div class="toggle collapse" (click)="toggle()"  title="Collapse Left Navigation" id="leftnav-collapse">
+          <fa-icon [icon]="['fas', 'chevron-left']"></fa-icon> <fa-icon [icon]="['fas', 'chevron-left']"></fa-icon>
+      </div>
+      <div class="toggle expand" (click)="toggle()" title="Expand Left Navigation" id="leftnav-expand">
+          <fa-icon [icon]="['fas', 'chevron-right']"></fa-icon> <fa-icon [icon]="['fas', 'chevron-right']"></fa-icon>
+      </div>
+  </div>
+</nav>

@@ -1,0 +1,12 @@
+{
+  "name": "@surescripts/user-profile",
+  "version": "5.1.0-alpha",
+  "peerDependencies": {
+    "@angular/common": "^8.2.2",
+    "@angular/core": "^8.2.2",
+    "@ng-bootstrap/ng-bootstrap": "^5.1.0",
+    "@surescripts/glue": ">=4.3.1-alpha",
+    "bootstrap": "^4.3.1",
+    "rxjs": "^6.5.2"
+  }
+}

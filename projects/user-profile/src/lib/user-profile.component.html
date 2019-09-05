@@ -1,0 +1,8 @@
+<span *ngIf="environment && !isProduction" class="environment-identifier navbar-text pr-2" [ngClass]="{'staging': isStaging}" title="Current Environment: {{environment}}">{{environment}}</span>
+<div class="d-inline-block" ngbDropdown placement="bottom-right" *ngIf="profile?.user" display="dynamic">
+  <a ngbDropdownToggle class="nav-link" data-toggle="dropdown">{{profile?.user?.lastName}}, {{profile?.user?.firstName}}</a>
+  <div ngbDropdownMenu>
+      <a class="dropdown-item" id="userprofile-profile-link" href="{{profile?.baseUrl}}/profile">View Profile</a>
+      <a class="dropdown-item" id="userprofile-logout-link" href="{{logoutUrl}}">Logout</a>
+  </div>
+</div>

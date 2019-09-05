@@ -1,0 +1,14 @@
+@import "~@surescripts/glue/src/scss/custom.scss";
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+.environment-identifier {
+  font-weight: bold;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  &.staging {
+      color: $brand-orange;
+  }
+}

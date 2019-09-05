@@ -1,0 +1,39 @@
+@import "~@surescripts/glue/src/scss/custom.scss";
+
+.dropdown-toggle::after {
+  display: none;
+}
+.dropdown-toggle {
+  cursor: pointer;
+}
+#surescripts-notifications-icon.new {
+  color: $brand-orange;
+}
+
+li {
+  cursor: pointer;
+  padding: .75rem;
+  &.read {
+    background-color:$gray-100;
+  }
+  h6 > a, span > small > a {
+    color: inherit;
+  }
+}
+
+.dropdown-menu {
+  width: 500px;
+  max-height: 400px;
+  overflow-x: auto;
+  padding: 0;
+  .card-title {
+    margin-bottom:0;
+  }
+  .card-body {
+    padding: .75rem;
+  }
+  .card-footer {
+    border-top: none;
+    background-color:#fff;
+  }
+}

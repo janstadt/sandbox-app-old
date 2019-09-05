@@ -1,0 +1,33 @@
+<div class="d-inline-block" ngbDropdown [placement]="['bottom', 'bottom-right']" display="dynamic" autoClose="outside">
+    <a ngbDropdownToggle class="nav-link" id="surescripts-notifications-icon" [ngClass]="{'new': unreadCount > 0 }" title="{{unreadCount}} unread notifications" data-toggle="dropdown">
+        <fa-icon [icon]="faBell" [fixedWidth]="true" size="lg"></fa-icon>
+    </a>
+    <div ngbDropdownMenu>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title" id="notifications-title">Notifications ({{unreadCount}})</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item flex-column align-items-start" *ngIf="notifications?.items?.length === 0">
+                    <span>No notifications at this time.</span>
+                </li>
+                <li class="list-group-item flex-column align-items-start" id="{{notification?.id}}" (click)="itemClicked(notification)" [ngClass]="{ 'read': notification?.status === SurescriptsNotificationStatus.Read}" *ngFor="let notification of notifications?.items; index as j;">
+                    <h6 class="mb-1 text-truncate">
+                        <a href="{{notifications?.baseUrl}}/notifications/{{notification?.id}}"  id="{{notification?.id}}-notification-title" title="View All Notifications">{{notification.title}}</a>
+                    </h6>
+                    <p class="mb-1 text-truncate" title="{{notification.summary}}" id="{{notification?.id}}-notification-summary">{{notification.summary}}</p>
+                    <span class="d-flex w-100 justify-content-between">
+                        <small class="text-muted">{{notification.readablePostedDate || (notification.postedDate | date:'shortDate') }}</small>
+                        <small class="text-muted">
+                            <a href="javascript:void(0)" (click)="dismiss($event, notification)" id="{{notification?.id}}-notification-dismiss">Dismiss</a>
+                        </small>
+                    </span>
+                </li>
+            </ul>
+            <div class="card-footer text-center">
+                <a href="{{notifications?.baseUrl}}/notifications" id="view-all-notifications" title="View All Notifications">View All</a>
+            </div>
+
+        </div>
+    </div>
+</div>

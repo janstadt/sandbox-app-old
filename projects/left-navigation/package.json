@@ -1,0 +1,15 @@
+{
+  "name": "@surescripts/left-navigation",
+  "version": "5.1.0-alpha",
+  "peerDependencies": {
+    "@angular/common": "^8.2.2",
+    "@angular/core": "^8.2.2",
+    "@ng-bootstrap/ng-bootstrap": "^5.1.0",
+    "@surescripts/glue": ">=4.3.1-alpha",
+    "bootstrap": "^4.3.1",
+    "rxjs": "^6.5.2",
+    "@fortawesome/angular-fontawesome": "^0.5.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.21",
+    "@fortawesome/free-solid-svg-icons": "^5.10.1"
+  }
+}
