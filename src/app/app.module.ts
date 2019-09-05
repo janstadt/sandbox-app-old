@@ -2,16 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Router, NavigationStart } from '@angular/router';
 import { AppComponent } from './app.component';
-import { ProductDropdownModule } from 'product-dropdown';
+// import { ProductDropdownModule } from 'product-dropdown';
 import { fakeBackendProvider } from './app.httpInterceptor';
 import { UserProfileModule } from 'user-profile';
-import { LeftNavigationModule } from 'left-navigation';
+// import { LeftNavigationModule } from 'left-navigation';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faSearch, faUserPlus, faUserMd, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { LeftNavComponent } from './left-nav.component';
 import { HomeComponent } from './home.component';
 import { SearchComponent } from './search.component';
-import { NotificationsModule } from 'notifications';
+// import { NotificationsModule } from 'notifications';
 
 
 
@@ -27,9 +27,9 @@ import { NotificationsModule } from 'notifications';
     BrowserModule,
     UserProfileModule,
     FontAwesomeModule,
-    LeftNavigationModule.forRoot(),
-    ProductDropdownModule,
-    NotificationsModule,
+    // LeftNavigationModule.forRoot(),
+    // ProductDropdownModule,
+    // NotificationsModule,
     RouterModule.forRoot([
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
