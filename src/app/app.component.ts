@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-// import { LeftNavigationService, NavItem, NavHeading, NavItemType } from 'left-navigation';
+import { LeftNavigationService, NavItem, NavHeading, NavItemType } from '../../dist/left-navigation';
 
 @Component({
   selector: 'surescripts-root',
@@ -11,17 +11,14 @@ export class AppComponent {
   displayNav = false;
   collapsed = false;
 
-  constructor() {
-
+  constructor(private leftNavService: LeftNavigationService) {
+    this.collapsed = this.leftNavService.collapsed;
+    this.leftNavService.items.subscribe((items: Array<NavItem>) => {
+        this.displayNav = items && items.length > 0;
+    });
+    this.collapsed = this.leftNavService.collapsed;
+    this.leftNavService.toggle.subscribe((collapsed: boolean) => {
+        this.collapsed = collapsed;
+    });
   }
-  // constructor(private leftNavService: LeftNavigationService) {
-  //   this.collapsed = this.leftNavService.collapsed;
-  //   this.leftNavService.items.subscribe((items: Array<NavItem>) => {
-  //       this.displayNav = items && items.length > 0;
-  //   });
-  //   this.collapsed = this.leftNavService.collapsed;
-  //   this.leftNavService.toggle.subscribe((collapsed: boolean) => {
-  //       this.collapsed = collapsed;
-  //   });
-  // }
 }

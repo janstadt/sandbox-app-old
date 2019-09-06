@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LeftNavigationService } from 'left-navigation';
+import { LeftNavigationService } from '../../dist/left-navigation';
 
 @Component({
   selector: 'surescripts-home',
